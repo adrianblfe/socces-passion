@@ -5,10 +5,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "commit": "standard-commit",
+    "commitlint": "standard-commitlint",
+    "release": "standard-version"
+  },
+  "gitHooks": {
+    "commit-msg": "standard-commithook"
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "pinia": "^2.0.27",
     "vue": "^2.6.14"
   },
   "devDependencies": {
@@ -19,7 +26,10 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "vue-template-compiler": "^2.6.14"
+    "standard-commit": "^4.2.6",
+    "standard-version": "^9.5.0",
+    "vue-template-compiler": "^2.6.14",
+    "yorkie": "^2.0.0"
   },
   "eslintConfig": {
     "root": true,
