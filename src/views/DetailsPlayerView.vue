@@ -11,23 +11,7 @@
             </div>
             <div class="row">
                 <div class="col-12 d-flex justify-content-center align-items-center">
-                    <div class="card player-card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img :src="(image || imageDefault)" class="img-fluid rounded-start" alt="image-player">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ player.name }}</h5>
-                                    <h6 class="card-subtitle mb-2">{{ player.position }}</h6>
-                                    <p class="card-text mb-0">Fecha de nacimiento: {{ player?.birthDate || '-' }}</p>
-                                    <p class="card-text mb-0">Edad: {{ player?.age || '-' }} años</p>
-                                    <p class="card-text mb-0">País: {{ nation?.name || '-' }}</p>                            
-                                    <p class="card-text mb-0">Equipo: {{ club?.name || '-'}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <PlayerCard :player="player" :nation="nation" :club="club" :image="image" />
                 </div>
             </div>
         </div>
@@ -39,16 +23,17 @@ import { mapActions, mapState } from 'pinia'
 import { usePlayerStore } from '../stores/player'
 import { useNationStore } from '../stores/nation'
 import { useClubStore } from '../stores/club'
-import defaultAvatar from '../assets/default-avatar.png'
 
 export default {
     name: 'DetailsPlayer',
+    components: {
+        PlayerCard: () => import('../components/PlayerCard.vue')
+    },
     data() {
         return {
             store: usePlayerStore(),
             playerId: this.$route.params.id,
             player: null,
-            imageDefault: defaultAvatar
         };
     },
     computed: {
@@ -86,19 +71,14 @@ export default {
 
 <style lang="scss" scoped>
 #details-player {
-   height: 100vh;
-  .container-items {
-    height: 100%;
+    height: 100vh;
+    .container-items {
+            height: 100%;
 
-    .back-players-link {
-        text-decoration: none;
-        color: #E2E2E0;
+            .back-players-link {
+                text-decoration: none;
+                color: #E2E2E0;
+            }
     }
-
-    .player-card {
-        width: 100%;
-        background-color: #E2E2E0;
-    }
-  }
 }
 </style>
