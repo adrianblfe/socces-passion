@@ -5,10 +5,7 @@
         <TheHeader title="Soccer Passion" />
       </div>
     </div>
-
-    <div class="row container-items">
-      <TheCatalogue />
-    </div>
+    <router-view/>
   </div>
 </template>
 
@@ -17,20 +14,12 @@ export default {
   name: 'App',
   components: {
     TheHeader: () => import('./components/TheHeader.vue'),
-    TheCatalogue: () => import('./components/TheCatalogue.vue')
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
-  height: 100vh;
-  
-  .container-header {
-  }
-  
-  .container-items {
-    height: 100%;
-  }
+  background-color: #1D2D44;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
-  <div class="header px-4 py-2">
-    <span class="title">{{ title }}</span>
-    <font-awesome-icon class="filter-icon" icon="fa-solid fa-filter" />
+  <div class="header px-3 py-2">
+    <h2 class="title">{{ title }}</h2>
   </div>
 </template>
 
@@ -24,6 +23,7 @@ export default {
 
   .title, .filter-icon {
     color: #F0EBD8;
+    // font-size: 25px;
   }
 }
 </style>

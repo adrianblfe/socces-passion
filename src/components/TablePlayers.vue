@@ -13,7 +13,7 @@
 
             <tbody>
                 <tr v-for="player in players" :key="player.id" class="player-row">
-                    <td>{{ player.name }}</td>
+                    <td class="name-hover" @click="goToPlayerDetails(player.id)">{{ player.name }}</td>
                     <td class="text-center">{{ player.age }}</td>
                     <td class="text-center">{{ player.club }}</td>
                     <td class="text-center">{{ player.nation }}</td>
@@ -33,6 +33,11 @@
                 required: true,
             }
         },
+        methods: {
+            goToPlayerDetails(playerId) {
+                this.$router.push({ name: 'detailsPlayer', params: { id: playerId } });
+            }
+        }
     }
 </script>
 
@@ -43,6 +48,10 @@ table {
     &.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
         color: #4f4f4f;
         background-color: #E2E2E0;
+    }
+
+    .name-hover:hover {
+        cursor: pointer;
     }
 }
 </style>
