@@ -1,8 +1,13 @@
 <template>
     <div class="catalogue container px-4 py-3">
+        <div class="row mb-3">
+            <div class="col-12">
+                <TheFilters @search="searchPlayers" />
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
-                <TablePlayers :players="players" />
+                <TablePlayers :players="playersFiltered" />
             </div>
         </div>
 
@@ -19,20 +24,32 @@ import { mapActions, mapState } from 'pinia'
 import { usePlayerStore } from '../stores/player'
 
 export default {
+    name: 'TheCatalogue',
     components: {
         TablePlayers: () => import('./TablePlayers.vue'),
-        ThePagination: () => import('./ThePagination.vue')
+        ThePagination: () => import('./ThePagination.vue'),
+        TheFilters: () => import('./TheFilters.vue')
+    },
+    data() {
+        return {
+            playerStore: usePlayerStore()
+        };
     },
     computed: {
-        ...mapState(usePlayerStore, ['players']),
+        ...mapState(usePlayerStore, ['playersFiltered']),
     },
-    mounted() {
-        this.getList({ page: 1 });
+    async mounted() {
+        await this.getList({ page: 1 });
+        await this.searchPlayers();
     },
     methods: {
         ...mapActions(usePlayerStore, ['getList']),
         changeList(page) {
             this.getList(page);
+        },
+        searchPlayers(data = null) {
+            console.log('SEARCH', data);
+            this.playerStore.filterPlayers({ text: data?.name || '' });
         }
     }
 }

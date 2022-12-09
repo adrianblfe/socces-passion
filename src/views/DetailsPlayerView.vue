@@ -41,7 +41,7 @@ export default {
         ...mapState(useNationStore, ['nation']),
         ...mapState(useClubStore, ['club']),
     },
-    created() {
+    beforeCreate() {
         this.player = this.getPlayer(this.playerId);
     },
     mounted() {

@@ -14,5 +14,13 @@ export const useClubStore = defineStore('club', {
                 })
                 .catch((error) => console.error(error));
         },
+
+        getClubByIdAxios(id) {
+            Vue.axios.get(`/clubs/${ id }`)
+                .then(({ data }) => {
+                    this.clubs.push(data.club)
+                })
+                .catch((error) => console.error(error));
+        }
     }
 });

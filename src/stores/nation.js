@@ -14,5 +14,13 @@ export const useNationStore = defineStore('nation', {
                 })
                 .catch((error) => console.error(error));
         },
+
+        getNationByIdAxios(id) {
+            Vue.axios.get(`/nations/${ id }`)
+                .then(({ data }) => {
+                    this.nations.push(data.nation);
+                })
+                .catch((error) => console.error(error));
+        },
     }
 });
