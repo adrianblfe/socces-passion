@@ -4,7 +4,7 @@ import Vue from "vue";
 export const useNationStore = defineStore('nation', {
     state: () => ({
         nations: [],
-        nation: null,
+        nation: {},
     }),
     actions: {
         getNationById(id) {

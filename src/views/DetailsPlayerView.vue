@@ -33,7 +33,7 @@ export default {
         return {
             store: usePlayerStore(),
             playerId: this.$route.params.id,
-            player: null,
+            player: {},
         };
     },
     computed: {
@@ -41,8 +41,10 @@ export default {
         ...mapState(useNationStore, ['nation']),
         ...mapState(useClubStore, ['club']),
     },
-    beforeCreate() {
+    created() {
+        console.log('CREATED 1', this.playerId);
         this.player = this.getPlayer(this.playerId);
+        console.log('CREATED 2', this.player);
     },
     mounted() {
         this.getImage();
@@ -60,6 +62,7 @@ export default {
             this.getImagePlayer(this.playerId);
         },
         getNation() {
+            console.log('PLAYER', this.player);
             this.getNationById(this.player.nation);
         },
         getClub() {

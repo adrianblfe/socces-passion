@@ -3,6 +3,7 @@
         <table class="table table-hover table-responsive">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Nombre</th>
                     <th class="text-center">Edad</th>
                     <th class="text-center">Equipo</th>
@@ -13,6 +14,7 @@
 
             <tbody>
                 <tr v-for="player in players" :key="player.id" class="player-row">
+                    <td>{{ player.id }}</td>
                     <td class="name-hover" @click="goToPlayerDetails(player.id)">{{ player.name }}</td>
                     <td class="text-center">{{ player.age }}</td>
                     <td class="text-center">{{ getClubName(player.club) }}</td>

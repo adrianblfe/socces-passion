@@ -48,7 +48,6 @@ export default {
             this.getList(page);
         },
         searchPlayers(data = null) {
-            console.log('SEARCH', data);
             this.playerStore.filterPlayers({ text: data?.name || '' });
         }
     }

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import { createPinia, PiniaVuePlugin } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -32,10 +33,11 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 /* Setup instance of Pinia */
 Vue.use(PiniaVuePlugin)
 const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate);
 
 /* Setup Axios */
 axios.defaults.baseURL = 'https://futdb.app/api/';
-axios.defaults.headers.common['X-AUTH-TOKEN'] = 'd07e0d5e-5031-468f-ab17-49362d14ac72';
+axios.defaults.headers.common['X-AUTH-TOKEN'] = process.env.VUE_APP_AUTH_TOKEN;
 Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false

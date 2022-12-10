@@ -6,10 +6,10 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{ player.name }}</h5>
-                    <h6 class="card-subtitle mb-2">{{ player.position }}</h6>
+                    <h5 class="card-title">{{ player?.name || 'Nombre no facilitado' }}</h5>
+                    <h6 class="card-subtitle mb-2">{{ player?.position || '-' }}</h6>
                     <p class="card-text mb-0">Fecha de nacimiento: {{ player?.birthDate || '-' }}</p>
-                    <p class="card-text mb-0">Edad: {{ player?.age || '-' }} años</p>
+                    <p class="card-text mb-0">Edad: {{ `${player?.age} años` || '-' }}</p>
                     <p class="card-text mb-0">País: {{ nation?.name || '-' }}</p>                            
                     <p class="card-text mb-0">Equipo: {{ club?.name || '-'}}</p>
                 </div>

@@ -4,7 +4,7 @@ import Vue from "vue";
 export const useClubStore = defineStore('club', {
     state: () => ({
         clubs: [],
-        club: null,
+        club: {},
     }),
     actions: {
         getClubById(id) {

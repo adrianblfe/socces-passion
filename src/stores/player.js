@@ -11,7 +11,7 @@ export const usePlayerStore = defineStore('player', {
         itemsPerPage: 0,
         pageTotal: 0,
         pageCurrent: 0,
-        image: null,
+        image: '',
     }),
     getters: {
         getPlayerById(state) {
@@ -71,5 +71,6 @@ export const usePlayerStore = defineStore('player', {
                     console.error(error);
                 });
         },
-    }
+    },
+    persist: true,
 });

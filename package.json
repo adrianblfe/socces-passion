@@ -20,7 +20,9 @@
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
+    "dotenv": "^16.0.3",
     "pinia": "^2.0.27",
+    "pinia-plugin-persistedstate": "^3.0.1",
     "vue": "^2.6.14",
     "vue-axios": "^3.5.2",
     "vue-router": "^3.5.1"
