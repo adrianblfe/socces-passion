@@ -13,7 +13,8 @@ Y finalmente, copia el auth-token de FutDB y pegalo como valor en la variable de
 VUE_APP_FUTDB_TOKEN=fsd890sd-8989-087d-bg89-54528e56bg23
 ```
 
-### Compila y arranca el proyecto
+## Compila y arranca el proyecto
+Y por último, solamente arranca el proyecto con el siguiente comando.
 ```
 npm run serve
 ```
