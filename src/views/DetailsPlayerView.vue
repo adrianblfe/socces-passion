@@ -42,9 +42,7 @@ export default {
         ...mapState(useClubStore, ['club']),
     },
     created() {
-        console.log('CREATED 1', this.playerId);
         this.player = this.getPlayer(this.playerId);
-        console.log('CREATED 2', this.player);
     },
     mounted() {
         this.getImage();
@@ -62,7 +60,6 @@ export default {
             this.getImagePlayer(this.playerId);
         },
         getNation() {
-            console.log('PLAYER', this.player);
             this.getNationById(this.player.nation);
         },
         getClub() {

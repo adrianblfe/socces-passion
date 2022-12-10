@@ -37,7 +37,7 @@ pinia.use(piniaPluginPersistedstate);
 
 /* Setup Axios */
 axios.defaults.baseURL = 'https://futdb.app/api/';
-axios.defaults.headers.common['X-AUTH-TOKEN'] = process.env.VUE_APP_AUTH_TOKEN;
+axios.defaults.headers.common['X-AUTH-TOKEN'] = process.env.VUE_APP_FUTDB_TOKEN;
 Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
